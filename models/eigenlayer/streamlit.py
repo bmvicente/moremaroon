@@ -23,4 +23,10 @@ Learn more on EigenLayer [here](https://www.eigenlayer.xyz/).
 """)
 
 df = calculate_apy(starting_apy, r_annual, timeframe_days, n)
-fig = c
+fig = create_apy_plot(df)
+
+# Displaying Line Chart
+st.plotly_chart(fig)
+
+# Displaying DataFrame
+st.write(df)
