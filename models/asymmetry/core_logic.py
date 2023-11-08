@@ -1,6 +1,7 @@
 import random
 import os
 import openai
+import streamlit as st
 
 # Setup API key for OpenAI
 openai_api_key = os.environ.get('OPENAI_API_KEY')
@@ -97,3 +98,23 @@ def call_gpt3_to_generate_description(asymmetry_model):
         return description
     except Exception as e:
         raise Exception(f"An error occurred while generating the description: {str(e)}")
+    
+
+def generate_asymmetry_description(model_name):
+
+    try:
+        response = openai.Completion.create(
+            model="text-davinci-003",  # Or whichever GPT model you're using
+            prompt=f"Write a concise description for a financial model named {model_name}.",
+            temperature=0.7,
+            max_tokens=100
+        )
+        description = response.choices[0].text.strip()
+        return description
+    except openai.error.OpenAIError as e:
+        st.error(f"An error occurred while generating the description: {str(e)}")
+        return None
+
+def initialize_session_states():
+    if 'initialized' not in st.session_state:
+        st.session_state['initialized'] = True
