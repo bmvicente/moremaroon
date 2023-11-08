@@ -5,7 +5,7 @@ from plot import create_apy_plot
 st.title("EigenLayer: LST Restaking APY Simulation")
 
 # Sidebar with Inputs
-st.sidebar.image("images/eigenlayers.png")
+st.sidebar.image("models/images/eigenlayers.png")
 starting_apy_percentage = st.sidebar.slider('Starting APY (%):', min_value=0.0, max_value=10.0, value=0.0, step=0.1)
 r_annual_percentage = st.sidebar.slider('Annual interest rate (%):', min_value=0.0, max_value=10.0, value=5.0, step=0.1)
 r_annual = r_annual_percentage / 100
