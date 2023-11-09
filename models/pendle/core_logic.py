@@ -41,7 +41,7 @@ def calculate_var_stETH_APY(outlook, CP, CstETH, CV):
     outlook_idx = outlook_map.get(outlook)
 
     FP_ranges = [(1300.00, 1550.00), (1550.00, 1750.00), (1750.00, 2000.00)]
-    FstETH_ranges = [(1.50, 3.50), (3.50, 5.00), (5.00, 7.00)]
+    FstETH_ranges = [(1.00, 3.00), (3.00, 4.50), (4.50, 6.50)]
     FV_ranges = [(780000, 820000), (820000, 850000), (850000, 890000)]
 
     outlook_idx = outlook_map[outlook]
