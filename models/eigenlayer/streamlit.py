@@ -2,7 +2,7 @@ import streamlit as st
 from core_logic import calculate_apy
 from plot import create_apy_plot
 
-st.title("EigenLayer: LST Restaking APY Simulation")
+st.title("EigenLayer: LST Restaking APY Simulation (In Progress)")
 
 # Sidebar with Inputs
 st.sidebar.image("models/images/eigenlayers.png")
