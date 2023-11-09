@@ -23,6 +23,9 @@ Learn more on EigenLayer [here](https://www.eigenlayer.xyz/).
 """)
 
 df = calculate_apy(starting_apy, r_annual, timeframe_days, n)
+
+df = df.iloc[::-1]
+
 fig = create_apy_plot(df)
 
 # Displaying Line Chart
