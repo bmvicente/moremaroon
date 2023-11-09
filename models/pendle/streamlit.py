@@ -108,7 +108,7 @@ df_avg = df_avg.iloc[::-1]
 final_day_row = df_avg[df_avg['Day'] == "Day 60"]
 
 # Make the APY bold
-final_day_row['7-Day Average stETH APY'] = final_day_row['7-Day Average stETH APY'].apply(lambda x: f"**{x}%**")
+final_day_row['7-Day Average stETH APY'] = final_day_row['7-Day Average stETH APY'].apply(lambda x: str.format('**{:.4f}%**', x))
 
 data_string = f"Outlook: {outlook}. Time Range: {days} days. {methodology} Data: {df_avg.to_string(index=False)}"
 
