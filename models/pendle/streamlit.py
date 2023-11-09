@@ -107,8 +107,14 @@ df_avg = df_avg.iloc[::-1]
 # Get the row for the final day
 final_day_row = df_avg[df_avg['Day'] == "Day 60"]
 
+# Convert the Pandas Series object to a Python list
+final_day_row_list = final_day_row['7-Day Average stETH APY'].tolist()
+
 # Make the APY bold
-final_day_row['7-Day Average stETH APY'] = final_day_row['7-Day Average stETH APY'].apply(lambda x: str.format('**{}%**', x))
+final_day_row_list = [str.format('**{}%**', x) for x in final_day_row_list]
+
+# Convert the Python list back to a Pandas Series object
+final_day_row['7-Day Average stETH APY'] = pd.Series(final_day_row_list)
 
 
 data_string = f"Outlook: {outlook}. Time Range: {days} days. {methodology} Data: {df_avg.to_string(index=False)}"
