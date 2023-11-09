@@ -1,18 +1,18 @@
 import streamlit as st
 from core_logic import calculate_var_stETH_APY, compute_seven_day_avg
-from helpers import get_openai_api_key, generate_pendle_description, get_response_from_gpt
+from helpers import initialize_session_states, generate_pendle_description, get_response_from_gpt
 import plotly.graph_objects as go
 import pandas as pd
 import numpy as np
 
 # Ensure the API key is set
-get_openai_api_key()
+initialize_session_states()
 
 # Streamlit App Interface
 st.title("Pendle Finance: stETH Underlying APY Simulation")
 
 # Sidebar for user input
-st.sidebar.image("pendle.png")
+st.sidebar.image("models/image/pendle.png")
 initial_APY_input = st.sidebar.text_input("Starting stETH APY (%)", value="4.20")
 initial_APY = float(initial_APY_input)
 outlook = st.sidebar.selectbox("stETH Outlook", ["Optimistic", "Neutral", "Pessimistic"], index=1)

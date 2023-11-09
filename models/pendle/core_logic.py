@@ -1,4 +1,6 @@
 import random
+import streamlit as st
+import openai
 
 def get_random_value(interval):
     """Generates a random value from an interval."""

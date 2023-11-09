@@ -50,8 +50,22 @@ def call_gpt3_to_generate_description(pendle_model):
     except Exception as e:
         raise Exception(f"An error occurred while generating the description: {str(e)}")
     
+
+def generate_pendle_description(model_name):
+
+    try:
+        response = openai.Completion.create(
+            model="text-davinci-003",  # Or whichever GPT model you're using
+            prompt=f"Write a concise description for a financial model named {model_name}.",
+            temperature=0.7,
+            max_tokens=100
+        )
+        description = response.choices[0].text.strip()
+        return description
+    except openai.error.OpenAIError as e:
+        st.error(f"An error occurred while generating the description: {str(e)}")
+        return None
+
 def initialize_session_states():
     if 'initialized' not in st.session_state:
         st.session_state['initialized'] = True
-        # Initialize other session state variables as needed
-        # st.session_state['variable'] = initial_value
