@@ -52,6 +52,9 @@ df = pd.DataFrame({
     'Day': [f"Day {i}" for i in range(1, days+1)],
     '7-Day Weighted Average APY': [f"{val:.4f}%" for val in APYs_7_day_avg]
 })
+
+df = df.iloc[::-1]
+
 st.table(df.assign(hack='').set_index('hack'))
 
 # Generate and display data insights using GPT-3
