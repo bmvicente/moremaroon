@@ -3,8 +3,8 @@ import sys
 sys.path.append('/Users/ASUS/Desktop')
 # Assuming openai_integration.py contains the necessary functions to call GPT-3
 # Import the functions from the model files
-from pendlemodel_7davg import generate_pendle_description
-from asymmetrymodel import generate_asymmetry_description
+from ./streamlit.py import generate_pendle_description
+from ./asymmetrymodel import generate_asymmetry_description
 
 
 # Function to store the description in Streamlit's session state
