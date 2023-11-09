@@ -57,22 +57,22 @@ CstETH = 9000000  # Total stETH
 CV = 275000  # Current number of validators in Lido
 CstETH_APY = initial_APY  # Starting APY
 
-#stETH_APYs = [CstETH_APY]
-#for _ in range(1, days):
-#    var_stETH_APY_next = calculate_var_stETH_APY(outlook, CP, CstETH, CV)
-#    CstETH_APY += var_stETH_APY_next
-#    stETH_APYs.append(CstETH_APY)
-#
-#stETH_APYs_7_day_avg = compute_seven_day_avg(stETH_APYs)
-
 stETH_APYs = [CstETH_APY]
-for i in range(1, days):
-    if outlook != "Predict for me (Soon)":
-        var_stETH_APY_next = calculate_var_stETH_APY(outlook, CP, CstETH, CV)
-        CstETH_APY += var_stETH_APY_next
-        stETH_APYs.append(CstETH_APY)
+for _ in range(1, days):
+    var_stETH_APY_next = calculate_var_stETH_APY(outlook, CP, CstETH, CV)
+    CstETH_APY += var_stETH_APY_next
+    stETH_APYs.append(CstETH_APY)
 
 stETH_APYs_7_day_avg = compute_seven_day_avg(stETH_APYs)
+
+#stETH_APYs = [CstETH_APY]
+#for i in range(1, days):
+#    if outlook != "Predict for me (Soon)":
+#        var_stETH_APY_next = calculate_var_stETH_APY(outlook, CP, CstETH, CV)
+#        CstETH_APY += var_stETH_APY_next
+#        stETH_APYs.append(CstETH_APY)
+
+#stETH_APYs_7_day_avg = compute_seven_day_avg(stETH_APYs)
 
 # Visualization of APYs
 fig = go.Figure()
