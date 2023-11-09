@@ -6,7 +6,7 @@ from plot import create_plot
 # Streamlit App Configuration
 st.title("The Index Coop: icDEY APY Simulation vs cbETH")
 
-st.sidebar.image("indexcoop.png")
+st.sidebar.image("models/indexcoop/indexcoop.png")
 st.sidebar.write("")
 outlook = st.sidebar.selectbox("icDEY Outlook", ["Optimistic", "Neutral", "Pessimistic"], index=1)
 time_range = st.sidebar.selectbox("Time Range (in days)", [15, 30, 60, 90, 180], index=2)
