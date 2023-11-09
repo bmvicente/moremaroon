@@ -104,6 +104,12 @@ df_avg = pd.DataFrame({
 
 df_avg = df_avg.iloc[::-1]
 
+# Get the row for the final day
+final_day_row = df_avg[df_avg['Day'] == "Day 60"]
+
+# Make the APY bold
+final_day_row.loc['7-Day Average stETH APY'] = final_day_row.loc['7-Day Average stETH APY'].apply(lambda x: f"**{x}%**")
+
 data_string = f"Outlook: {outlook}. Time Range: {days} days. {methodology} Data: {df_avg.to_string(index=False)}"
 
 user_question = f"Given the {outlook} outlook over a span of {days} days, provide insights on the progression of the APY values."
