@@ -102,6 +102,8 @@ df_avg = pd.DataFrame({
     '7-Day Average stETH APY': [f"{val:.4f}%" for val in stETH_APYs_7_day_avg]
 })
 
+df_avg = df_avg.iloc[::-1]
+
 data_string = f"Outlook: {outlook}. Time Range: {days} days. {methodology} Data: {df_avg.to_string(index=False)}"
 
 user_question = f"Given the {outlook} outlook over a span of {days} days, provide insights on the progression of the APY values."
