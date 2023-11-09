@@ -171,6 +171,7 @@ fig.update_yaxes(
     tickvals=[val for val in np.linspace(y_axis_min, y_axis_max, 10)],
     ticktext=[f"{val:.2f}%" for val in np.linspace(y_axis_min, y_axis_max, 10)]
 )
+
 st.plotly_chart(fig)
 
 df_avg = pd.DataFrame({
