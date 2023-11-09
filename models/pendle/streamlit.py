@@ -15,7 +15,7 @@ st.title("Pendle Finance: stETH Underlying APY Simulation")
 st.sidebar.image("models/images/pendle.png")
 initial_APY_input = st.sidebar.text_input("Starting stETH APY (%)", value="4.20")
 initial_APY = float(initial_APY_input)
-outlook = st.sidebar.selectbox("stETH Outlook", ["Optimistic", "Neutral", "Pessimistic"], index=1)
+outlook = st.sidebar.selectbox("stETH Outlook", ["Optimistic", "Neutral", "Pessimistic","Predict For Me (Coming Soon)"], index=1)
 days = st.sidebar.selectbox("Maturity (in days)", [15, 30, 60, 90, 180], index=2)
 
 st.sidebar.write("  \n")
@@ -57,11 +57,20 @@ CstETH = 9000000  # Total stETH
 CV = 275000  # Current number of validators in Lido
 CstETH_APY = initial_APY  # Starting APY
 
+#stETH_APYs = [CstETH_APY]
+#for _ in range(1, days):
+#    var_stETH_APY_next = calculate_var_stETH_APY(outlook, CP, CstETH, CV)
+#    CstETH_APY += var_stETH_APY_next
+#    stETH_APYs.append(CstETH_APY)
+#
+#stETH_APYs_7_day_avg = compute_seven_day_avg(stETH_APYs)
+
 stETH_APYs = [CstETH_APY]
-for _ in range(1, days):
-    var_stETH_APY_next = calculate_var_stETH_APY(outlook, CP, CstETH, CV)
-    CstETH_APY += var_stETH_APY_next
-    stETH_APYs.append(CstETH_APY)
+for i in range(1, days):
+    if outlook != "Predict for me (Soon)":
+        var_stETH_APY_next = calculate_var_stETH_APY(outlook, CP, CstETH, CV)
+        CstETH_APY += var_stETH_APY_next
+        stETH_APYs.append(CstETH_APY)
 
 stETH_APYs_7_day_avg = compute_seven_day_avg(stETH_APYs)
 
