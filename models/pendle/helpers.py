@@ -21,16 +21,6 @@ def get_response_from_gpt(data_string, question):
     )
     return response.choices[0].message['content'].strip()
 
-def generate_pendle_description(pendle_model):
-    # Call GPT-3 to generate a description
-    pendle_description = call_gpt3_to_generate_pendle_description(pendle_model)
-    
-    # Store the description in the session state
-    session_state_key = f"description_{pendle_model.replace(' ', '_')}"
-    st.session_state[session_state_key] = pendle_description
-    
-    return pendle_description
-
 def call_gpt3_to_generate_pendle_description(pendle_model):
     # Ensure you have the API key set before calling this function
     if not openai_api_key:
@@ -50,21 +40,15 @@ def call_gpt3_to_generate_pendle_description(pendle_model):
     except Exception as e:
         raise Exception(f"An error occurred while generating the description: {str(e)}")
     
-
-def generate_pendle_description(model_name):
-
-    try:
-        response = openai.Completion.create(
-            model="text-davinci-003",  # Or whichever GPT model you're using
-            prompt=f"Write a concise description for a financial model named {model_name}.",
-            temperature=0.7,
-            max_tokens=100
-        )
-        description = response.choices[0].text.strip()
-        return description
-    except openai.error.OpenAIError as e:
-        st.error(f"An error occurred while generating the description: {str(e)}")
-        return None
+def generate_pendle_description(pendle_model):
+    # Call GPT-3 to generate a description
+    pendle_description = call_gpt3_to_generate_pendle_description(pendle_model)
+    
+    # Store the description in the session state
+    session_state_key = f"description_{pendle_model.replace(' ', '_')}"
+    st.session_state[session_state_key] = pendle_description
+    
+    return pendle_description
 
 def initialize_session_states():
     if 'initialized' not in st.session_state:
