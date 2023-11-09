@@ -5,8 +5,8 @@ sys.path.append('/Users/ASUS/Desktop')
 # Import the functions from the model files
 from pendle.streamlit import generate_pendle_description, call_gpt3_to_generate_pendle_description
 from asymmetry.streamlit import generate_asymmetry_description, call_gpt3_to_generate_asymmetry_description
-from indexcoop.streamlit import generate_indexcoop_description, call_gpt3_to_generate_indexcoop_description
-from eigenlayer.streamlit import generate_eigenlayer_description, call_gpt3_to_generate_eigenlayer_description
+#from indexcoop.streamlit import generate_indexcoop_description, call_gpt3_to_generate_indexcoop_description
+#from eigenlayer.streamlit import generate_eigenlayer_description, call_gpt3_to_generate_eigenlayer_description
 
 
 # Function to store the description in Streamlit's session state
@@ -32,10 +32,10 @@ def handle_model_interaction(model_name):
             description = call_gpt3_to_generate_pendle_description()
         elif model_name == "Asymmetry Finance: safETH APY Simulation":
             description = call_gpt3_to_generate_asymmetry_description()
-        elif model_name == "Index Coop":
-            description = call_gpt3_to_generate_indexcoop_description()
-        elif model_name == "Eigenlayer":
-            description = call_gpt3_to_generate_eigenlayer_description()
+        #elif model_name == "Index Coop":
+        #    description = call_gpt3_to_generate_indexcoop_description()
+        #elif model_name == "Eigenlayer":
+        #    description = call_gpt3_to_generate_eigenlayer_description()
         else:
             return None
         
