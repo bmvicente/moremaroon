@@ -89,7 +89,7 @@ def call_gpt3_to_generate_description(pendle_model):
 st.title("Pendle Finance: stETH Underlying APY Simulation")
 
 # Image
-st.sidebar.image("pendle.png")
+st.sidebar.image("models/images/pendle.png")
 st.sidebar.write("  \n")
 
 initial_APY_input = st.sidebar.text_input("Starting stETH APY(%)", value="4.20")
