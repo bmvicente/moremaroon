@@ -4,9 +4,9 @@ sys.path.append('/Users/ASUS/Desktop')
 # Assuming openai_integration.py contains the necessary functions to call GPT-3
 # Import the functions from the model files
 from pendle.streamlit import generate_pendle_description, call_gpt3_to_generate_pendle_description
-from pendle.helpers import generate_pendle_description, call_gpt3_to_generate_pendle_description, initialize_session_states
+#from pendle.helpers import generate_pendle_description, call_gpt3_to_generate_pendle_description, initialize_session_states
 from asymmetry.streamlit import generate_asymmetry_description, call_gpt3_to_generate_asymmetry_description
-from asymmetry.core_logic import call_gpt3_to_generate_asymmetry_description, generate_asymmetry_description, initialize_session_states
+#from asymmetry.core_logic import call_gpt3_to_generate_asymmetry_description, generate_asymmetry_description, initialize_session_states
 #from indexcoop.streamlit import generate_indexcoop_description, call_gpt3_to_generate_indexcoop_description
 #from eigenlayer.streamlit import generate_eigenlayer_description, call_gpt3_to_generate_eigenlayer_description
 
