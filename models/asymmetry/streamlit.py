@@ -17,6 +17,7 @@ st.title("Asymmetry Finance: safETH APY Simulation")
 
 # Sidebar configuration and user input
 st.sidebar.image("models/images/asymmetry.png")  # Assuming 'asymmetry.png' is in the correct directory
+st.sidebar.write("  \n")
 initial_APY_input = st.sidebar.text_input("Starting safETH APY (%)", value="4.20")
 initial_APY = float(initial_APY_input)
 outlook = st.sidebar.selectbox("safETH Outlook", ["Optimistic", "Neutral", "Pessimistic"], index=1)
