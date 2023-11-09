@@ -15,7 +15,7 @@ st.title("Pendle Finance: stETH Underlying APY Simulation")
 st.sidebar.image("models/images/pendle.png")
 initial_APY_input = st.sidebar.text_input("Starting stETH APY (%)", value="4.20")
 initial_APY = float(initial_APY_input)
-outlook = st.sidebar.selectbox("stETH Outlook", ["Optimistic", "Neutral", "Pessimistic", "<i>Predict For Me (Coming Soon)</i>"], index=1)
+outlook = st.sidebar.selectbox("stETH Outlook", ["Optimistic", "Neutral", "Pessimistic", "**<i>Predict For Me (Coming Soon)</i>**"], index=1)
 days = st.sidebar.selectbox("Maturity (in days)", [15, 30, 60, 90, 180], index=2)
 
 st.sidebar.write("  \n")
