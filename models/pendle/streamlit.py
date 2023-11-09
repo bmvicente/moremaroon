@@ -87,20 +87,19 @@ fig.update_yaxes(
 
 st.plotly_chart(fig)
 
-
 # Display the data table
 df_avg = pd.DataFrame({
     'Day': [f"Day {i}" for i in range(1, days + 1)],
     '7-Day Average stETH APY': [f"{val:.4f}%" for val in stETH_APYs_7_day_avg]
 })
-st.table(df_avg.assign(hack='').set_index('hack'))
 
 data_string = f"Outlook: {outlook}. Time Range: {days} days. {methodology} Data: {df_avg.to_string(index=False)}"
 
 user_question = f"Given the {outlook} outlook over a span of {days} days, provide insights on the progression of the APY values."
 answer = get_response_from_gpt(data_string, user_question)
+st.write(answer)
+
+st.table(df_avg.assign(hack='').set_index('hack'))
 
 data_string = f"Outlook: {outlook}. Time Range: {days} days. {methodology} Data: {df_avg.to_string(index=False)}"
 data_string += f"\n\n7-Day Average Data:\n{df_avg.to_string(index=False)}"
-
-st.write(answer)
