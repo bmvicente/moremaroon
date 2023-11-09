@@ -55,7 +55,6 @@ df = pd.DataFrame({
 
 df = df.iloc[::-1]
 
-st.table(df.assign(hack='').set_index('hack'))
 
 # Generate and display data insights using GPT-3
 data_string = f"""
@@ -84,3 +83,6 @@ if f'description_{asymmetry_model.replace(" ", "_")}' not in st.session_state:
 
 # Optionally display the stored description
 st.write(st.session_state.get(f'description_{asymmetry_model.replace(" ", "_")}', 'No description available.'))
+
+
+st.table(df.assign(hack='').set_index('hack'))
