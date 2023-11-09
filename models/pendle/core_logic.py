@@ -29,15 +29,16 @@ def get_random_value(interval):
 #    return var_stETH_APY_next
 
 
-def calculate_var_stETH_APY(outlook, CP, CstETH, CV):
-    outlook_idx = outlook_map.get(outlook)
-
-    outlook_map = {
+outlook_map = {
         "Optimistic": 0,
         "Neutral": 1,
         "Pessimistic": 2,
         "Predict For Me (Coming Soon)": None
     }
+
+
+def calculate_var_stETH_APY(outlook, CP, CstETH, CV):
+    outlook_idx = outlook_map.get(outlook)
 
     FP_ranges = [(1300.00, 1550.00), (1550.00, 1750.00), (1750.00, 2000.00)]
     FstETH_ranges = [(1.50, 3.50), (3.50, 5.00), (5.00, 7.00)]
