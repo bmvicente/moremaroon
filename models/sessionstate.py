@@ -3,9 +3,9 @@ import sys
 sys.path.append('/Users/ASUS/Desktop')
 # Assuming openai_integration.py contains the necessary functions to call GPT-3
 # Import the functions from the model files
-from pendle.streamlit import generate_pendle_description, call_gpt3_to_generate_pendle_description
+from pendle.streamlit import generate_pendle_description
 #from pendle.helpers import generate_pendle_description, call_gpt3_to_generate_pendle_description, initialize_session_states
-from asymmetry.streamlit import generate_asymmetry_description, call_gpt3_to_generate_asymmetry_description
+from asymmetry.streamlit import generate_asymmetry_description
 #from asymmetry.core_logic import call_gpt3_to_generate_asymmetry_description, generate_asymmetry_description, initialize_session_states
 #from indexcoop.streamlit import generate_indexcoop_description, call_gpt3_to_generate_indexcoop_description
 #from eigenlayer.streamlit import generate_eigenlayer_description, call_gpt3_to_generate_eigenlayer_description
@@ -23,7 +23,6 @@ def get_stored_model_description(model_names):
         return st.session_state['model_descriptions'].get(model_names)
     return None
 
-
 def handle_model_interaction(model_name):
     # Check if the description is already stored
     description = get_stored_model_description(model_name)
@@ -31,20 +30,19 @@ def handle_model_interaction(model_name):
     if description is None:
         # Determine which function to call based on the model_name
         if model_name == "Pendle Finance: stETH Underlying APY Simulation":
-            description = call_gpt3_to_generate_pendle_description()
+            description = generate_pendle_description()
         elif model_name == "Asymmetry Finance: safETH APY Simulation":
-            description = call_gpt3_to_generate_asymmetry_description()
+            description = generate_asymmetry_description()
         #elif model_name == "Index Coop":
         #    description = call_gpt3_to_generate_indexcoop_description()
         #elif model_name == "Eigenlayer":
         #    description = call_gpt3_to_generate_eigenlayer_description()
         else:
-            return None
+            description = "Description not available for this model."
         
         store_model_description_in_state(model_name, description)
     
-    if description is not None:
-        st.write(description)  # Display the description on the page
+    st.write(description)  # Display the description on the page
 
 
 # Model selection
