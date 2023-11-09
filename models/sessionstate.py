@@ -5,6 +5,7 @@ sys.path.append('/Users/ASUS/Desktop')
 # Import the functions from the model files
 from pendle.streamlit import generate_pendle_description, call_gpt3_to_generate_pendle_description
 from asymmetry.streamlit import generate_asymmetry_description, call_gpt3_to_generate_asymmetry_description
+from pendle.core_logic import calculate_var_stETH_APY, compute_seven_day_avg
 #from indexcoop.streamlit import generate_indexcoop_description, call_gpt3_to_generate_indexcoop_description
 #from eigenlayer.streamlit import generate_eigenlayer_description, call_gpt3_to_generate_eigenlayer_description
 
