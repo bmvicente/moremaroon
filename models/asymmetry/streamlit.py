@@ -20,7 +20,7 @@ st.sidebar.image("models/images/asymmetry.png")  # Assuming 'asymmetry.png' is i
 st.sidebar.write("  \n")
 initial_APY_input = st.sidebar.text_input("Starting safETH APY (%)", value="4.20")
 initial_APY = float(initial_APY_input)
-outlook = st.sidebar.selectbox("safETH Outlook", ["Optimistic", "Neutral", "Pessimistic"], index=1)
+outlook = st.sidebar.selectbox("safETH Outlook", ["Optimistic", "Neutral", "Pessimistic", "Predict For Me (Coming Soon)"], index=1)
 days = st.sidebar.selectbox("Time Range (in days)", [15, 30, 60, 90, 180], index=2)
 
 # Methodology section in the sidebar

@@ -8,7 +8,7 @@ st.title("The Index Coop: icDEY APY Simulation vs cbETH")
 
 st.sidebar.image("models/images/indexcoop.png")
 st.sidebar.write("")
-outlook = st.sidebar.selectbox("icDEY Outlook", ["Optimistic", "Neutral", "Pessimistic"], index=1)
+outlook = st.sidebar.selectbox("icDEY Outlook", ["Optimistic", "Neutral", "Pessimistic", "Predict For Me (Coming Soon)"], index=1)
 time_range = st.sidebar.selectbox("Time Range (in days)", [15, 30, 60, 90, 180], index=2)
 
 # Sidebar Methodology and Links
@@ -34,6 +34,8 @@ df = pd.DataFrame({
     'icDEY APY': [f"{val:.4f}%" for val in icDEY_APYs],
     'cbETH APY': [f"{val:.4f}%" for val in cbETH_APYs]
 })
+
+df = df.iloc[::-1]
 
 # GPT-3 Integration for Analysis
 data_string = f"Outlook: {outlook}. Time Range: {time_range} days. Data: {df.to_string(index=False)}"
