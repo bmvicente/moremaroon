@@ -52,8 +52,8 @@ if f'description_{pendle_model.replace(" ", "_")}' not in st.session_state:
     generate_pendle_description(pendle_model)
 
 # Core logic for calculating APYs
-CP = 1650  # Current ETH Price
-CstETH = 8700000  # Total stETH
+CP = 1900  # Current ETH Price
+CstETH = 9000000  # Total stETH
 CV = 275000  # Current number of validators in Lido
 CstETH_APY = initial_APY  # Starting APY
 
