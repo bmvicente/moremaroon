@@ -12,7 +12,7 @@ initialize_session_states()
 st.title("Pendle Finance: stETH Underlying APY Simulation")
 
 # Sidebar for user input
-st.sidebar.image("models/image/pendle.png")
+st.sidebar.image("models/images/pendle.png")
 initial_APY_input = st.sidebar.text_input("Starting stETH APY (%)", value="4.20")
 initial_APY = float(initial_APY_input)
 outlook = st.sidebar.selectbox("stETH Outlook", ["Optimistic", "Neutral", "Pessimistic"], index=1)
