@@ -23,7 +23,7 @@ def get_response_from_gpt(data_string, question):
 
 def generate_pendle_description(pendle_model):
     # Call GPT-3 to generate a description
-    pendle_description = call_gpt3_to_generate_description(pendle_model)
+    pendle_description = call_gpt3_to_generate_pendle_description(pendle_model)
     
     # Store the description in the session state
     session_state_key = f"description_{pendle_model.replace(' ', '_')}"
@@ -31,7 +31,7 @@ def generate_pendle_description(pendle_model):
     
     return pendle_description
 
-def call_gpt3_to_generate_description(pendle_model):
+def call_gpt3_to_generate_pendle_description(pendle_model):
     # Ensure you have the API key set before calling this function
     if not openai_api_key:
         raise ValueError("OpenAI API key not found!")

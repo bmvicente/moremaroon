@@ -80,7 +80,7 @@ def compute_seven_day_avg(apy_values):
             averages.append(sum(apy_values[idx-6:idx+1]) / 7)
     return averages
 
-def call_gpt3_to_generate_description(asymmetry_model):
+def call_gpt3_to_generate_asymmetry_description(asymmetry_model):
     # Ensure you have the API key set before calling this function
     if not openai_api_key:
         raise ValueError("OpenAI API key not found!")
