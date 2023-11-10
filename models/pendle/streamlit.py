@@ -21,13 +21,6 @@ days = st.sidebar.selectbox("Maturity (in days)", [15, 30, 60, 90, 180], index=2
 st.sidebar.write("  \n")
 st.sidebar.write("  \n")
 
-hide_st_style = """
-            <style>
-            footer {visibility: hidden;}
-            </style>
-            """
-st.markdown(hide_st_style, unsafe_allow_html=True)
-
 methodology = """
 **Pendle's stETH Underlying APY Simulation** provides insights into how stETH's APY evolves over time, given the dynamic changes in ETH price, total stETH, and the number of validators in Lido.
 
@@ -52,7 +45,7 @@ if f'description_{pendle_model.replace(" ", "_")}' not in st.session_state:
     generate_pendle_description(pendle_model)
 
 # Core logic for calculating APYs
-CP = 1650  # Current ETH Price
+CP = 2000  # Current ETH Price
 CstETH = 8700000  # Total stETH
 CV = 275000  # Current number of validators in Lido
 CstETH_APY = initial_APY  # Starting APY
@@ -64,15 +57,6 @@ for _ in range(1, days):
     stETH_APYs.append(CstETH_APY)
 
 stETH_APYs_7_day_avg = compute_seven_day_avg(stETH_APYs)
-
-#stETH_APYs = [CstETH_APY]
-#for i in range(1, days):
-#    if outlook != "Predict for me (Soon)":
-#        var_stETH_APY_next = calculate_var_stETH_APY(outlook, CP, CstETH, CV)
-#        CstETH_APY += var_stETH_APY_next
-#        stETH_APYs.append(CstETH_APY)
-
-#stETH_APYs_7_day_avg = compute_seven_day_avg(stETH_APYs)
 
 # Visualization of APYs
 fig = go.Figure()
