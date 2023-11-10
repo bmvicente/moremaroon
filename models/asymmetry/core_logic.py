@@ -100,12 +100,12 @@ def call_gpt3_to_generate_asymmetry_description(asymmetry_model):
         raise Exception(f"An error occurred while generating the description: {str(e)}")
     
 
-def generate_asymmetry_description(model_name):
+def generate_asymmetry_description(asymmetry_model):
 
     try:
         response = openai.Completion.create(
             model="text-davinci-003",  # Or whichever GPT model you're using
-            prompt=f"Write a concise description for a financial model named {model_name}.",
+            prompt=f"Write a concise description for a financial model named {asymmetry_model}.",
             temperature=0.7,
             max_tokens=100
         )
@@ -118,3 +118,7 @@ def generate_asymmetry_description(model_name):
 def initialize_session_states():
     if 'initialized' not in st.session_state:
         st.session_state['initialized'] = True
+
+def get_stored_pendle_description(asymmetry_model):
+    session_state_key = f"description_{asymmetry_model.replace(' ', '_')}"
+    return st.session_state.get(session_state_key, "No description available.")

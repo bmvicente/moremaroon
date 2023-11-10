@@ -53,3 +53,7 @@ def generate_pendle_description(pendle_model):
 def initialize_session_states():
     if 'initialized' not in st.session_state:
         st.session_state['initialized'] = True
+
+def get_stored_pendle_description(pendle_model):
+    session_state_key = f"description_{pendle_model.replace(' ', '_')}"
+    return st.session_state.get(session_state_key, "No description available.")
