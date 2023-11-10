@@ -1,8 +1,8 @@
 import streamlit as st
 import openai
 import os
-from models.pendle.helpers import get_stored_pendle_description
-from models.asymmetry.core_logic import get_stored_asymmetry_description
+from pendle.helpers import get_stored_pendle_description
+from asymmetry.core_logic import get_stored_asymmetry_description
 #from models.indexcoop.core_logic import get_stored_indexcoop_description
 
 
