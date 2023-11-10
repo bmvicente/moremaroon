@@ -119,6 +119,6 @@ def initialize_session_states():
     if 'initialized' not in st.session_state:
         st.session_state['initialized'] = True
 
-def get_stored_pendle_description(asymmetry_model):
+def get_stored_asymmetry_description(asymmetry_model):
     session_state_key = f"description_{asymmetry_model.replace(' ', '_')}"
     return st.session_state.get(session_state_key, "No description available.")
