@@ -99,21 +99,16 @@ def call_gpt3_to_generate_asymmetry_description(asymmetry_model):
     except Exception as e:
         raise Exception(f"An error occurred while generating the description: {str(e)}")
     
+def generate_pendle_description(asymmetry_model):
+    # Call GPT-3 to generate a description
+    asymmetry_description = call_gpt3_to_generate_asymmetry_description(asymmetry_model)
+    
+    # Store the description in the session state
+    session_state_key = f"description_{asymmetry_model.replace(' ', '_')}"
+    st.session_state[session_state_key] = asymmetry_description
+    
+    return asymmetry_description
 
-def generate_asymmetry_description(asymmetry_model):
-
-    try:
-        response = openai.Completion.create(
-            model="text-davinci-003",  # Or whichever GPT model you're using
-            prompt=f"Write a concise description for a financial model named {asymmetry_model}.",
-            temperature=0.7,
-            max_tokens=100
-        )
-        description = response.choices[0].text.strip()
-        return description
-    except openai.error.OpenAIError as e:
-        st.error(f"An error occurred while generating the description: {str(e)}")
-        return None
 
 def initialize_session_states():
     if 'initialized' not in st.session_state:
