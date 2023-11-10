@@ -99,7 +99,7 @@ def call_gpt3_to_generate_asymmetry_description(asymmetry_model):
     except Exception as e:
         raise Exception(f"An error occurred while generating the description: {str(e)}")
     
-def generate_pendle_description(asymmetry_model):
+def generate_asymmetry_description(asymmetry_model):
     # Call GPT-3 to generate a description
     asymmetry_description = call_gpt3_to_generate_asymmetry_description(asymmetry_model)
     

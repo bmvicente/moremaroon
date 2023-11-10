@@ -16,8 +16,8 @@ available_models = ['Pendle', 'Asymmetry']
 
 # Predefined descriptions for each model (replace these with actual descriptions)
 model_descriptions = {
-    'Pendle': get_stored_pendle_description("pendle_model"),
-    'Asymmetry': get_stored_asymmetry_description("asymmetry_model")
+    'Pendle': get_stored_pendle_description("Pendle"),
+    'Asymmetry': get_stored_asymmetry_description("Asymmetry")
     #'Index Coop': get_stored_indexcoop_description("indexcoop_model")
 }
 
