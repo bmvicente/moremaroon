@@ -11,7 +11,7 @@ if openai_api_key:
 
 # Initialize session state variables
 if 'selected_models' not in st.session_state:
-    st.session_state['selected_models'] = ['Pendle', 'Asymmetry']
+    st.session_state['selected_models'] = []
 
 print("Session State after initialization:", st.session_state)
 
@@ -29,7 +29,7 @@ available_models = ['Pendle', 'Asymmetry']
 
 # Predefined descriptions for each model
 model_descriptions = {
-    'Pendle': get_stored_pendle_description("Pendle"),
+    'Pendle': get_stored_pendle_description("Pendle Finance: stETH Underlying APY Simulation"),
     'Asymmetry': get_stored_asymmetry_description("Asymmetry")
 }
 

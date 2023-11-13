@@ -96,8 +96,8 @@ df_avg = df_avg.iloc[::-1]
 data_string = f"Outlook: {outlook}. Time Range: {days} days. {methodology} Data: {df_avg.to_string(index=False)}"
 
 user_question = f"Given the {outlook} outlook over a span of {days} days, provide insights on the progression of the APY values."
-answer = get_response_from_gpt(data_string, user_question)
-st.write(answer)
+pendle_answer = get_response_from_gpt(data_string, user_question)
+st.write(pendle_answer)
 
 st.table(df_avg.assign(hack='').set_index('hack'))
 
