@@ -3,6 +3,7 @@ import openai
 import streamlit as st
 from streamlit import pendle_answer
 
+
 # Setup API key for OpenAI
 openai_api_key = os.environ.get('OPENAI_API_KEY')
 if openai_api_key:
@@ -21,25 +22,6 @@ def get_response_from_gpt(data_string, question):
         max_tokens=250
     )
     return response.choices[0].message['content'].strip()
-
-def call_gpt3_to_generate_pendle_description(pendle_model):
-    # Ensure you have the API key set before calling this function
-    if not openai_api_key:
-        raise ValueError("OpenAI API key not found!")
-
-    # Actual call to OpenAI's API to generate a description
-    try:
-        response = openai.Completion.create(
-            model="text-davinci-003",  # Or whichever model you're using
-            prompt=f"Write a concise model description for a financial model named {pendle_model}.",
-            temperature=0.7,
-            max_tokens=150
-        )
-        # Extracting the text from the response
-        description = response.choices[0].text.strip()
-        return description
-    except Exception as e:
-        raise Exception(f"An error occurred while generating the description: {str(e)}")
     
 def generate_pendle_description(pendle_model, description):
     # Store the provided description in the session state
@@ -50,8 +32,10 @@ def generate_pendle_description(pendle_model, description):
 
 # Example usage
 pendle_model = "Pendle Finance: stETH Underlying APY Simulation"
-pendle_description = pendle_answer  # Assuming pendle_answer contains the GPT-generated description
+# Assuming pendle_answer contains the GPT-generated description
+pendle_description = pendle_answer
 generate_pendle_description(pendle_model, pendle_description)
+
 
 def initialize_session_states():
     if 'initialized' not in st.session_state:
