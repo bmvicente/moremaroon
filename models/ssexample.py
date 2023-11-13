@@ -11,6 +11,10 @@ openai_api_key = os.environ.get('OPENAI_API_KEY')
 if openai_api_key:
     openai.api_key = openai_api_key
 
+# Initialize session state variables
+if 'selected_models' not in st.session_state:
+    st.session_state['selected_models'] = []  # Initialize as an empty list or with default models
+
 # Define a list of available simulation models
 available_models = ['Pendle', 'Asymmetry']
 
