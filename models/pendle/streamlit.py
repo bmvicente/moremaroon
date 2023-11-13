@@ -1,11 +1,14 @@
 import streamlit as st
-from core_logic import calculate_var_stETH_APY, compute_seven_day_avg
+from core_logic import calculate_var_stETH_APY, compute_seven_day_avg, calculate_apy
 from helpers import initialize_session_states, generate_pendle_description, get_response_from_gpt
 import plotly.graph_objects as go
 import pandas as pd
 import numpy as np
 
-# Ensure the API key is set
+# Function to run Pendle model logic
+def run_pendle_model():
+    st.title("Pendle Finance: stETH Underlying APY Simulation")
+
 initialize_session_states()
 
 # Streamlit App Interface
@@ -56,11 +59,15 @@ for _ in range(1, days):
     CstETH_APY += var_stETH_APY_next
     stETH_APYs.append(CstETH_APY)
 
-stETH_APYs_7_day_avg = compute_seven_day_avg(stETH_APYs)
+# Convert APRs to APYs
+stETH_APYs_apy = [calculate_apy(apy) for apy in stETH_APYs]
+
+# Compute 7-day average of APYs
+stETH_APYs_7_day_avg_apy = compute_seven_day_avg(stETH_APYs_apy)
 
 # Visualization of APYs
 fig = go.Figure()
-fig.add_trace(go.Scatter(x=list(range(1, days + 1)), y=stETH_APYs_7_day_avg, mode='lines', name='stETH APY 7-day Avg'))
+fig.add_trace(go.Scatter(x=list(range(1, days + 1)), y=stETH_APYs_7_day_avg_apy, mode='lines', name='stETH APY 7-day Avg'))
 
 y_axis_min = initial_APY - 3.5  # 3.50% below the starting APY
 y_axis_max = initial_APY + 3.5  # 3.50% above the starting APY
@@ -83,7 +90,7 @@ st.plotly_chart(fig)
 # Display the data table
 df_avg = pd.DataFrame({
     'Day': [f"Day {i}" for i in range(1, days + 1)],
-    '7-Day Average stETH APY': [f"{val:.4f}%" for val in stETH_APYs_7_day_avg]
+    '7-Day Average stETH APY': [f"{val:.4f}%" for val in stETH_APYs_7_day_avg_apy]
 })
 
 df_avg = df_avg.iloc[::-1]

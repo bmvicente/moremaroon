@@ -15,7 +15,6 @@ if not openai_api_key:
 else:
     openai.api_key = openai_api_key
 
-
 def get_random_value(interval, idx):
     """Generates a random value from an interval based on the given outlook index."""
     lower, upper = interval[idx]
