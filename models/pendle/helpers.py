@@ -17,7 +17,7 @@ def get_response_from_gpt(data_string, question):
         model="gpt-3.5-turbo",
         messages=messages,
         temperature=0.01,
-        max_tokens=100
+        max_tokens=250
     )
     return response.choices[0].message['content'].strip()
 
