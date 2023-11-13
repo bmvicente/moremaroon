@@ -1,7 +1,7 @@
 import os
 import openai
 import streamlit as st
-from streamlit import pendle_answer
+#from streamlit import pendle_answer
 
 # Setup API key for OpenAI
 openai_api_key = os.environ.get('OPENAI_API_KEY')
