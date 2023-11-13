@@ -11,7 +11,9 @@ if openai_api_key:
 
 # Initialize session state variables
 if 'selected_models' not in st.session_state:
-    st.session_state['selected_models'] = []
+    st.session_state['selected_models'] = ['Pendle', 'Asymmetry']
+
+print("Session State after initialization:", st.session_state)
 
 if 'strategy_generated' not in st.session_state:
     st.session_state['strategy_generated'] = False
@@ -42,22 +44,29 @@ def call_gpt3_for_suggestions(combined_description):
             prompt=prompt,
             max_tokens=150
         )
+        print("GPT-3 API Response:", response)
+
         return response.choices[0].text.strip()
     except Exception as e:
         return f"Error in generating suggestions: {str(e)}"
 
 # Function to generate the combined strategy text
 def generate_strategy():
+    print("Selected Models:", st.session_state['selected_models'])
     if len(st.session_state['selected_models']) < 2:
         st.error("Please select at least two simulation models.")
         return
     
     combined_description = " ".join(model_descriptions.get(model, "Description not available") for model in st.session_state['selected_models'])
+    print("Combined Description:", combined_description)
+
     combined_strategy = f"The combined strategy integrates {', '.join(st.session_state['selected_models'])} with an approach based on: {combined_description}"
 
     st.session_state['strategy_generated'] = True
     st.session_state['combined_strategy'] = combined_strategy
     st.session_state['gpt_suggestions'] = call_gpt3_for_suggestions(combined_description)
+    print("GPT-3 Suggestions:", st.session_state['gpt_suggestions'])
+
 
 # UI Components
 with st.form(key='strategy_form'):
