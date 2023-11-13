@@ -30,13 +30,6 @@ def calculate_var_stETH_APY(outlook, CP, CstETH, CV):
     var_stETH_APY_next = (1/5)*((FP-CP)/CP) * (1/2)*((FstETH-CstETH)/CstETH) * (3/10)*((FV-CV)/CV)
     return var_stETH_APY_next
 
-def calculate_apy(apr, compounding_periods=365):
-    return ((1 + apr)**compounding_periods - 1)
-
-#def APY_to_DPY(apy):
-#    """Converts APY to DPY."""
-#    return (1 + apy) ** (1/365) - 1
-
 # Add in Asymmetry simulatiom
 def compute_seven_day_avg(apy_values):
     averages = []
