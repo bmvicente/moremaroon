@@ -32,7 +32,7 @@ def call_gpt3_to_generate_pendle_description(pendle_model):
             model="text-davinci-003",  # Or whichever model you're using
             prompt=f"Write a concise model description for a financial model named {pendle_model}.",
             temperature=0.7,
-            max_tokens=100
+            max_tokens=250
         )
         # Extracting the text from the response
         description = response.choices[0].text.strip()
