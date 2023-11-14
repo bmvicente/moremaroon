@@ -61,7 +61,7 @@ print(data_df_nf)
 #UI randomized
 
 def randomize_underlying_index():
-    return random.uniform(-0.2, 0.2)
+    return random.uniform(-0.1, 0.1)
 
 # Calculate the Terminal Indicator (TI)
 TI_values = []
@@ -70,7 +70,7 @@ TI_values = []
 st.sidebar.image("models/images/indexcoop.png")
 st.sidebar.write("")
 
-current_eth_price_input = st.sidebar.text_input("Current ETH Price ($)", value="1500")
+current_eth_price_input = st.sidebar.text_input("Current ETH Price ($)", value="2000")
 current_eth_price = float(current_eth_price_input)  # Convert the input string to float
 
 # Dropdown to select the outlook on ETH price
