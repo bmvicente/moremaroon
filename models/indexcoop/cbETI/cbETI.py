@@ -145,11 +145,11 @@ usdc_prices = simulate_usdc_price(days)
 
 def randomize_eth_change(eth_outlook):
     if eth_outlook == "Neutral":
-        return random.uniform(-7.5, 7.5)
+        return random.uniform(-2.50, 2.50)
     elif eth_outlook == "Pessimistic":
-        return random.uniform(-37.5, -7.5)
+        return random.uniform(-7.50, -2.00)
     elif eth_outlook == "Optimistic":
-        return random.uniform(7.5, 37.5)
+        return random.uniform(2.00, 7.50)
     else:
         raise ValueError("Invalid outlook provided.")
 
