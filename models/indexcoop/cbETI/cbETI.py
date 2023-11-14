@@ -38,8 +38,8 @@ def read_xlsx_from_github(raw_url):
     return headers, data
 
 # Raw URLs from GitHub
-url1 = "https://raw.githubusercontent.com/bmvicente/tokensight/main/Moving%20Average%20Pairs.xlsx"
-url2 = "https://raw.githubusercontent.com/bmvicente/tokensight/main/DF%20%26%20NF.xlsx"
+url1 = "https://raw.githubusercontent.com/bmvicente/moremaroon/models/indexcoop/cbETI/Moving%20Average%20Pairs.xlsx"
+url2 = "https://raw.githubusercontent.com/bmvicente/moremaroon/models/indexcoop/cbETI/DF%20%26%20NF.xlsx"
 
 # Read the xlsx files from GitHub and store headers and data in variables
 headers_moving_average_pairs, data_moving_average_pairs = read_xlsx_from_github(url1)
