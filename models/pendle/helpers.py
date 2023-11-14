@@ -1,7 +1,6 @@
 import os
 import openai
 import streamlit as st
-from pendle.pendle_st import pendle_answer
 
 
 # Setup API key for OpenAI
@@ -29,13 +28,6 @@ def generate_pendle_description(pendle_model, description):
     st.session_state[session_state_key] = description
 
     return description
-
-# Example usage
-pendle_model = "Pendle Finance: stETH Underlying APY Simulation"
-# Assuming pendle_answer contains the GPT-generated description
-pendle_description = pendle_answer
-generate_pendle_description(pendle_model, pendle_description)
-
 
 def initialize_session_states():
     if 'initialized' not in st.session_state:

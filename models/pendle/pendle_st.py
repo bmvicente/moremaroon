@@ -1,6 +1,6 @@
 import streamlit as st
 from pendle.core_logic import calculate_var_stETH_APY, compute_seven_day_avg
-from pendle.helpers import generate_pendle_description, get_response_from_gpt
+from pendle.helpers import initialize_session_states, generate_pendle_description, get_response_from_gpt
 import plotly.graph_objects as go
 import pandas as pd
 import numpy as np
@@ -8,6 +8,8 @@ import numpy as np
 # Function to run Pendle model logic
 def run_pendle_model():
     st.title("Pendle Finance: stETH Underlying APY Simulation")
+
+initialize_session_states()
 
 # Streamlit App Interface
 st.title("Pendle Finance: stETH Underlying APY Simulation")
@@ -39,11 +41,6 @@ A **7-Day Moving Average** formula for each day is also computed at the end to c
 st.sidebar.markdown(f"### Methodology{methodology}")
 
 st.sidebar.write("  \n")
-
-# Call the function to generate and store the Pendle model description if not already present in session state
-pendle_model = "Pendle Finance: stETH Underlying APY Simulation"
-if f'description_{pendle_model.replace(" ", "_")}' not in st.session_state:
-    generate_pendle_description(pendle_model)
 
 # Core logic for calculating APYs
 CP = 2000  # Current ETH Price
@@ -96,6 +93,13 @@ data_string = f"Outlook: {outlook}. Time Range: {days} days. {methodology} Data:
 user_question = f"Given the {outlook} outlook over a span of {days} days, provide insights on the progression of the APY values."
 pendle_answer = get_response_from_gpt(data_string, user_question)
 st.write(pendle_answer)
+
+# Call the function to generate and store the Pendle model description if not already present in session state
+pendle_model = "Pendle Finance: stETH Underlying APY Simulation"
+pendle_description = pendle_answer
+
+if f'description_{pendle_model.replace(" ", "_")}' not in st.session_state:
+    generate_pendle_description(pendle_model, pendle_description)
 
 st.table(df_avg.assign(hack='').set_index('hack'))
 
