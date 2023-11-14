@@ -61,7 +61,7 @@ print(data_df_nf)
 #UI randomized
 
 def randomize_underlying_index():
-    return 1  # Set UI to a fixed value of 100
+    return random.uniform(-0.2, 0.2)
 
 # Calculate the Terminal Indicator (TI)
 TI_values = []
