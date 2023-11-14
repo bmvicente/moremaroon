@@ -38,8 +38,9 @@ def read_xlsx_from_github(raw_url):
     return headers, data
 
 # Raw URLs from GitHub
-workbook1 = openpyxl.load_workbook('Moving Average Pairs.xlsx')
-workbook2 = openpyxl.load_workbook('DF & NF.xlsx')
+workbook1 = 'https://github.com/bmvicente/moremaroon/blob/master/models/indexcoop/cbETI/Moving%20Average%20Pairs.xlsx'
+workbook2 = 'https://github.com/bmvicente/moremaroon/blob/master/models/indexcoop/cbETI/DF%20%26%20NF.xlsx'
+
 
 # Read the xlsx files from GitHub and store headers and data in variables
 headers_moving_average_pairs, data_moving_average_pairs = read_xlsx_from_github(workbook1)
@@ -60,14 +61,13 @@ print(data_df_nf)
 #UI randomized
 
 def randomize_underlying_index():
-    # Your logic here...
     return random.uniform(-20, 20)  # This is just a placeholder. Adjust the logic as needed.
 
 # Calculate the Terminal Indicator (TI)
 TI_values = []
 
 # Streamlit sidebar inputs
-st.sidebar.image("indexcoop.png")
+st.sidebar.image("models/images/indexcoop.png")
 st.sidebar.write("")
 
 current_eth_price_input = st.sidebar.text_input("Current ETH Price ($)", value="1500")
