@@ -52,7 +52,7 @@ def calculate_weighted_average_APY(outlook, time_range, initial_APY):
         total_apy_for_day = sum(token_APYs)
         
         # Adjust this with the daily rate
-        APY_next = total_apy_for_day + daily_rate
+        APY_next = total_apy_for_day * daily_rate
         APYs.append(APY_next)
 
     return APYs
@@ -79,6 +79,9 @@ def compute_seven_day_avg(apy_values):
         else:  # From the 7th day onward, compute the 7-day rolling average
             averages.append(sum(apy_values[idx-6:idx+1]) / 7)
     return averages
+
+
+####### SESSION STATE #######
 
 def call_gpt3_to_generate_asymmetry_description(asymmetry_model):
     # Ensure you have the API key set before calling this function
