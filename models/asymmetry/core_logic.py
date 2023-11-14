@@ -52,10 +52,11 @@ def calculate_weighted_average_APY(outlook, time_range, initial_APY):
         total_apy_for_day = sum(token_APYs)
         
         # Adjust this with the daily rate
-        APY_next = total_apy_for_day * daily_rate
+        APY_next = APYs[-1] * (1 + daily_rate) 
         APYs.append(APY_next)
 
     return APYs
+
 
 def get_response_from_gpt(data_string, question):
     messages = [
