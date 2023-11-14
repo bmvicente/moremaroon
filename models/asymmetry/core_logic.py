@@ -30,7 +30,7 @@ def calculate_weighted_average_APY(outlook, time_range, initial_APY):
         "stafi": (0.15, [(2.00, 3.00), (3.00, 4.00), (4.00, 6.00)])
     }
 
-    Daily_Rate = [(-0.01, -0.005),(-0.005,0.005),(0.005, 0.01)]
+    Daily_Rate = [(-0.0075, 0.001),(-0.005,0.005),(-0.001, 0.0075)]
 
     APYs = []
 
