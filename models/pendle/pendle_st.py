@@ -1,6 +1,6 @@
 import streamlit as st
-from pendle.core_logic import calculate_var_stETH_APY, compute_seven_day_avg
-from pendle.helpers import get_response_from_gpt
+from core_logic import calculate_var_stETH_APY, compute_seven_day_avg
+from helpers import get_response_from_gpt
 import plotly.graph_objects as go
 import pandas as pd
 import numpy as np
@@ -103,11 +103,10 @@ pendle_model = "Pendle Finance: stETH Underlying APY Simulation"
 pendle_description = pendle_answer
 
 def generate_pendle_description(pendle_model, pendle_description):
-    # Store the provided description in the session state
-    session_state_key = f"description_{pendle_description.replace(' ', '_')}"
+    session_state_key = f"description_{pendle_model.replace(' ', '_')}"
     st.session_state[session_state_key] = pendle_description
-
     return pendle_description
+
 
 def initialize_session_states():
     if 'initialized' not in st.session_state:
@@ -120,7 +119,7 @@ def get_stored_pendle_description(pendle_model):
 if f'description_{pendle_model.replace(" ", "_")}' not in st.session_state:
     generate_pendle_description(pendle_model, pendle_description)
 
-st.write(st.session_state[f"description_{pendle_description.replace(' ', '_')}"])
+st.write(st.session_state[f"description_{pendle_model.replace(' ', '_')}"])
 
 
 #######################
