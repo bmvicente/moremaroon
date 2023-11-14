@@ -1,7 +1,7 @@
 import streamlit as st
 import openai
 import os
-from pendle.helpers import get_stored_pendle_description
+from pendle.pendle_st import get_stored_pendle_description
 from asymmetry.core_logic import get_stored_asymmetry_description
 
 # Setup API key for OpenAI

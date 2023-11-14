@@ -22,21 +22,3 @@ def get_response_from_gpt(data_string, question):
     )
     return response.choices[0].message['content'].strip()
 
-
-############################
-
-    
-def generate_pendle_description(pendle_model, description):
-    # Store the provided description in the session state
-    session_state_key = f"description_{pendle_model.replace(' ', '_')}"
-    st.session_state[session_state_key] = description
-
-    return description
-
-def initialize_session_states():
-    if 'initialized' not in st.session_state:
-        st.session_state['initialized'] = True
-
-def get_stored_pendle_description(pendle_model):
-    session_state_key = f"description_{pendle_model.replace(' ', '_')}"
-    return st.session_state.get(session_state_key, "No description available.")

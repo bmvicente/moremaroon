@@ -98,25 +98,24 @@ st.write(pendle_answer)
 ######################
 
 
-def generate_pendle_description(pendle_model, description):
-    # Store the provided description in the session state
-    session_state_key = f"description_{description.replace(' ', '_')}"
-    st.session_state[session_state_key] = description
+# Call the function to generate and store the Pendle model description if not already present in session state
+pendle_model = "Pendle Finance: stETH Underlying APY Simulation"
+pendle_description = pendle_answer
 
-    return description
+def generate_pendle_description(pendle_model, pendle_description):
+    # Store the provided description in the session state
+    session_state_key = f"description_{pendle_description.replace(' ', '_')}"
+    st.session_state[session_state_key] = pendle_description
+
+    return pendle_description
 
 def initialize_session_states():
     if 'initialized' not in st.session_state:
         st.session_state['initialized'] = True
 
-def get_stored_pendle_description(pendle_model, description):
-    session_state_key = f"description_{description.replace(' ', '_')}"
+def get_stored_pendle_description(pendle_model, pendle_description):
+    session_state_key = f"description_{pendle_description.replace(' ', '_')}"
     return st.session_state.get(session_state_key, "No description available.")
-
-
-# Call the function to generate and store the Pendle model description if not already present in session state
-pendle_model = "Pendle Finance: stETH Underlying APY Simulation"
-pendle_description = pendle_answer
 
 if f'description_{pendle_model.replace(" ", "_")}' not in st.session_state:
     generate_pendle_description(pendle_model, pendle_description)
