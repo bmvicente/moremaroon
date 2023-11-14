@@ -38,12 +38,12 @@ def read_xlsx_from_github(raw_url):
     return headers, data
 
 # Raw URLs from GitHub
-url1 = "https://raw.githubusercontent.com/bmvicente/moremaroon/models/indexcoop/cbETI/Moving%20Average%20Pairs.xlsx"
-url2 = "https://raw.githubusercontent.com/bmvicente/moremaroon/models/indexcoop/cbETI/DF%20%26%20NF.xlsx"
+workbook1 = openpyxl.load_workbook('Moving Average Pairs.xlsx')
+workbook2 = openpyxl.load_workbook('DF & NF.xlsx')
 
 # Read the xlsx files from GitHub and store headers and data in variables
-headers_moving_average_pairs, data_moving_average_pairs = read_xlsx_from_github(url1)
-headers_df_nf, data_df_nf = read_xlsx_from_github(url2)
+headers_moving_average_pairs, data_moving_average_pairs = read_xlsx_from_github(workbook1)
+headers_df_nf, data_df_nf = read_xlsx_from_github(workbook2)
 
 print("Headers from Moving Average Pairs.xlsx:")
 print(headers_moving_average_pairs)
