@@ -1,6 +1,6 @@
 import streamlit as st
-from pendle_core_logic import calculate_var_stETH_APY, compute_seven_day_avg
-from helpers import get_response_from_gpt
+from pendle.pendle_core_logic import calculate_var_stETH_APY, compute_seven_day_avg
+from pendle.helpers import get_response_from_gpt
 import plotly.graph_objects as go
 import pandas as pd
 import numpy as np
