@@ -38,8 +38,8 @@ def read_xlsx_from_github(raw_url):
     return headers, data
 
 # Raw URLs from GitHub
-workbook1 = 'https://github.com/bmvicente/moremaroon/blob/master/models/indexcoop/cbETI/Moving%20Average%20Pairs.xlsx'
-workbook2 = 'https://github.com/bmvicente/moremaroon/blob/master/models/indexcoop/cbETI/DF%20%26%20NF.xlsx'
+workbook1 = 'https://raw.githubusercontent.com/bmvicente/moremaroon/master/models/indexcoop/cbETI/Moving%20Average%20Pairs.xlsx'
+workbook2 = 'https://raw.githubusercontent.com/bmvicente/moremaroon/master/models/indexcoop/cbETI/DF%20%26%20NF.xlsx'
 
 
 # Read the xlsx files from GitHub and store headers and data in variables
