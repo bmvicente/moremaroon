@@ -9,8 +9,6 @@ import numpy as np
 def run_pendle_model():
     st.title("Pendle Finance: stETH Underlying APY Simulation")
 
-initialize_session_states()
-
 # Streamlit App Interface
 st.title("Pendle Finance: stETH Underlying APY Simulation")
 
@@ -94,12 +92,40 @@ user_question = f"Given the {outlook} outlook over a span of {days} days, provid
 pendle_answer = get_response_from_gpt(data_string, user_question)
 st.write(pendle_answer)
 
+
+######################
+### SESSION STATE ###
+######################
+
+
+def generate_pendle_description(pendle_model, description):
+    # Store the provided description in the session state
+    session_state_key = f"description_{pendle_model.replace(' ', '_')}"
+    st.session_state[session_state_key] = description
+
+    return description
+
+def initialize_session_states():
+    if 'initialized' not in st.session_state:
+        st.session_state['initialized'] = True
+
+def get_stored_pendle_description(pendle_model):
+    session_state_key = f"description_{pendle_model.replace(' ', '_')}"
+    return st.session_state.get(session_state_key, "No description available.")
+
+
 # Call the function to generate and store the Pendle model description if not already present in session state
 pendle_model = "Pendle Finance: stETH Underlying APY Simulation"
 pendle_description = pendle_answer
 
 if f'description_{pendle_model.replace(" ", "_")}' not in st.session_state:
     generate_pendle_description(pendle_model, pendle_description)
+
+st.write(st.session_state[f"description_{pendle_model.replace(' ', '_')}"])
+
+
+#######################
+
 
 st.table(df_avg.assign(hack='').set_index('hack'))
 
