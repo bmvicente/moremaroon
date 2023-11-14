@@ -2,8 +2,8 @@ import plotly.graph_objects as go
 import numpy as np
 
 def create_apy_plot(days, APYs_7_day_avg, initial_APY):
-    y_axis_min = initial_APY - 2.5  # 2.5% below the starting APY
-    y_axis_max = initial_APY + 2.5  # 2.5% above the starting APY
+    y_axis_min = initial_APY - 8  # 2.5% below the starting APY
+    y_axis_max = initial_APY + 8  # 2.5% above the starting APY
 
     fig = go.Figure()
     fig.add_trace(go.Scatter(x=list(range(1, days+1)), y=APYs_7_day_avg, mode='lines', name='safETH APY'))
