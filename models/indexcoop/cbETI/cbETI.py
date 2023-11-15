@@ -62,11 +62,11 @@ print(data_df_nf)
 
 def randomize_underlying_index(eth_outlook):
     if eth_outlook == "Pessimistic":
-        return random.uniform(-0.05, 0.005)
+        return random.uniform(-0.20, 0.005)
     elif eth_outlook == "Neutral":
         return random.uniform(-0.01, 0.01)
     elif eth_outlook == "Optimistic":
-        return random.uniform(-0.005, 0.05)
+        return random.uniform(-0.005, 0.20)
     else:
         raise ValueError("Invalid outlook provided.")
 
