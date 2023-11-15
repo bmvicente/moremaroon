@@ -61,7 +61,7 @@ print(data_df_nf)
 #UI randomized
 
 def randomize_underlying_index():
-    return random.uniform(-0.1, 0.1)
+    return random.uniform(-0.05, 0.05)
 
 # Calculate the Terminal Indicator (TI)
 TI_values = []
@@ -124,6 +124,7 @@ for day in range(days):
     MAP4 = np.sign(difference_10_40)
     TI = int((MAP1 + MAP2 + MAP3 + MAP4) / 4)
     TI_values.append(TI)
+
 
 #############################################
 
