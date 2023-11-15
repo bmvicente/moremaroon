@@ -60,8 +60,16 @@ print(data_df_nf)
 
 #UI randomized
 
-def randomize_underlying_index():
-    return random.uniform(-0.01, 0.10)
+def randomize_underlying_index(eth_outlook):
+    if eth_outlook == "Pessimistic":
+        return random.uniform(-0.05, 0.005)
+    elif eth_outlook == "Neutral":
+        return random.uniform(-0.01, 0.01)
+    elif eth_outlook == "Optimistic":
+        return random.uniform(-0.005, 0.05)
+    else:
+        raise ValueError("Invalid outlook provided.")
+
 
 # Calculate the Terminal Indicator (TI)
 TI_values = []
@@ -98,7 +106,7 @@ Visit the [source code](https://github.com/bmvicente/tokensight/blob/main/cbETI.
 for day in range(days):
     # For this example, let's assume the outlook is "Neutral" for each day. 
     # You can change this based on your requirements, or even randomize the outlook choice.
-    underlying_value = randomize_underlying_index()
+    underlying_value = randomize_underlying_index(eth_outlook)
 
     MA = [1, 2.5, 5, 10, 20, 40]
 
