@@ -31,7 +31,8 @@ def simulate_icDEY_APY(outlook, time_range):
     Daily_Rate = [(0.0025, 0.0125), (0.0126, 0.020), (0.021, 0.040)]
 
     # Only first APY is random
-    first_APY = get_random_value(Leveraged_cbETH, outlook_idx) * Liquidity_Providing * get_random_value(wstETH, outlook_idx)
+    # Rethink this equation here
+    first_APY = ((get_random_value(Leveraged_cbETH, outlook_idx) * (1 + Liquidity_Providing)) * (1 + get_random_value(wstETH, outlook_idx)))
     APYs = [first_APY]
 
     for _ in range(1, time_range):

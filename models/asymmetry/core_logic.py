@@ -30,6 +30,10 @@ def calculate_weighted_average_APY(outlook, time_range, initial_APY):
         "stafi": (0.15, [(2.00, 3.00), (3.00, 4.00), (4.00, 6.00)])
     }
 
+    # Think of always positive compounding, just in different scales.
+    # Option in simulation to select compounding or not
+    # Check DefiLlama Base APY info
+
     Daily_Rate = [(-0.0075, 0.001),(-0.005,0.005),(-0.001, 0.0075)]
 
     APYs = []

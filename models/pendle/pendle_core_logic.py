@@ -15,6 +15,9 @@ def calculate_var_stETH_APY(outlook, CP, CstETH, CV):
         "Predict For Me (Coming Soon)": None
     }
 
+
+    # Give initial values and add in daily rates, like Asymmetry
+
     FP_ranges = [(1500.00, 1900.00), (1900.00, 2100.00), (2100.00, 2500.00)]
     #[(1300.00, 1550.00), (1550.00, 1750.00), (1750.00, 2000.00)]
     FstETH_ranges = [(1.50, 3.50), (3.50, 5.00), (5.00, 7.00)]
