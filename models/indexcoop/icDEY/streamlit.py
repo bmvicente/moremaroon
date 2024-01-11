@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from icDEY_logic import simulate_icDEY_APY, simulate_cbETH_APY, get_response_from_gpt
+from icDEY_logic import simulate_icDEY_APY, simulate_cbETH_APY
 from plot import create_plot
 
 # Streamlit App Configuration
