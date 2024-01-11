@@ -15,7 +15,11 @@ time_range = st.sidebar.selectbox("Time Range (in days)", [15, 30, 60, 90, 180],
 st.sidebar.markdown("""          
 ### Methodology
 
-- **icDEY** is derived from randomly selected values from predefined ranges for Leveraged_cbETH and wstETH, dependent on the outlook. The initial APY multiplies this with a constant liquidity providing rate. Subsequent days add a random daily rate to the previous APY.
+- **icDEY** is derived from randomly selected values from the below predefined ranges for Leveraged_cbETH and wstETH, dependent on the outlook. The initial APY multiplies this with a constant liquidity providing rate. Subsequent days add a random daily rate to the previous APY:
+                    ***Leveraged cbETH range*** = [(3.8, 4.7), (4.8, 5.7), (5.8, 6.7)] | 
+    ***Liquidity Providing range*** = 0.3 | 
+    ***wstETH range*** = [(1.5, 3), (3, 4), (4, 5.5)] | 
+    ***Daily Compounding Rate range*** = [(0.0025, 0.0125), (0.0126, 0.020), (0.021, 0.040)]
 - **cbETH** starts with an initial APY of 3.3%, with a compounded yield added each day.
 
 Learn more on The Index Coop [here](https://indexcoop.com/).
