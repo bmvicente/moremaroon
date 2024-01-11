@@ -23,7 +23,7 @@ st.sidebar.markdown("""
 ### Methodology
 **Asymmetry Finance's safETH APY Simulation** encompasses the following calculations:
 
-- **Token Weighted APYs**: safETH's APY is a weighted sum of individual token APYs. Each token is assigned a weight (info here)[https://github.com/bmvicente/moremaroon/blob/master/models/asymmetry/core_logic.py], and its APY range varies based on the chosen outlook (Optimistic, Neutral, or Pessimistic). These token APYs are derived from a randomized selection within their respective ranges:
+- **Token Weighted APYs**: safETH's APY is a weighted sum of individual token APYs. Each token is assigned a weight [info here](https://github.com/bmvicente/moremaroon/blob/master/models/asymmetry/core_logic.py), and its APY range varies based on the chosen outlook (Optimistic, Neutral, or Pessimistic). These token APYs are derived from a randomized selection within their respective ranges:
 17% wstETH, 21% rETH, 21% sfrxETH,  5% ankrETH, 21% swETH, 15% stafi.
 Starting APY: The simulation begins with the inputted APY. For each subsequent day, the APY is a weighted average based on the randomized token APYs and their assigned weights.
 
