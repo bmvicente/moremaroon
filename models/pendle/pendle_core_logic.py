@@ -1,6 +1,5 @@
 import random
 import streamlit as st
-import openai
 
 def get_random_value(interval):
     """Generates a random value from an interval."""
@@ -16,7 +15,7 @@ def calculate_var_stETH_APY(outlook, CP, CstETH, CV):
     }
 
 
-    FP_ranges = [(1500.00, 1900.00), (1900.00, 2100.00), (2100.00, 2500.00)]
+    FP_ranges = [(2300.00, 2700.00), (2700.00, 2900.00), (2900.00, 3300.00)]
     #[(1500.00, 1900.00), (1900.00, 2100.00), (2100.00, 2500.00)]
     #[(1300.00, 1550.00), (1550.00, 1750.00), (1750.00, 2000.00)]
     FstETH_ranges = [(1.50, 3.50), (3.50, 5.00), (5.00, 7.00)]
