@@ -37,11 +37,5 @@ df = pd.DataFrame({
 
 df = df.iloc[::-1]
 
-# GPT-3 Integration for Analysis
-data_string = f"Outlook: {outlook}. Time Range: {time_range} days. Data: {df.to_string(index=False)}"
-user_question = f"Given the {outlook} outlook over a span of {time_range} days, provide insights on the progression of the APYs values."
-answer = get_response_from_gpt(data_string, user_question)
-st.write(answer)
-
 # Displaying the Data Table
 st.table(df.set_index('Days'))
