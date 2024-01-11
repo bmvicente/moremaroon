@@ -93,26 +93,6 @@ user_question = f"Given the {outlook} outlook over a span of {days} days, provid
 #st.write(pendle_answer)
 
 
-######################
-### SESSION STATE ###
-######################
-
-
-# Call the function to generate and store the Pendle model description if not already present in session state
-pendle_model = "Pendle Finance: stETH Underlying APY Simulation"
-#pendle_description = pendle_answer
-
-def generate_pendle_description(pendle_model, pendle_description):
-    session_state_key = f"description_{pendle_model.replace(' ', '_')}"
-    st.session_state[session_state_key] = pendle_description
-    return pendle_description
-
-
-st.write(st.session_state[f"description_{pendle_model.replace(' ', '_')}"])
-
-
-#######################
-
 
 st.table(df_avg.assign(hack='').set_index('hack'))
 
