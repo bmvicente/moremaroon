@@ -20,6 +20,7 @@ st.sidebar.markdown("""
     ***Liquidity Providing range*** = 0.3 | 
     ***wstETH range*** = [(1.5, 3), (3, 4), (4, 5.5)] | 
     ***Daily Compounding Rate range*** = [(0.0025, 0.0125), (0.0126, 0.020), (0.021, 0.040)]
+
 - **cbETH** starts with an initial APY of 3.3%, with a compounded yield added each day.
 
 Learn more on The Index Coop [here](https://indexcoop.com/).
