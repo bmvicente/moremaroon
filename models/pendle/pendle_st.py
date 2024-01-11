@@ -90,7 +90,7 @@ data_string = f"Outlook: {outlook}. Time Range: {days} days. {methodology} Data:
 
 user_question = f"Given the {outlook} outlook over a span of {days} days, provide insights on the progression of the APY values."
 #pendle_answer = get_response_from_gpt(data_string, user_question)
-st.write(pendle_answer)
+#st.write(pendle_answer)
 
 
 ######################
