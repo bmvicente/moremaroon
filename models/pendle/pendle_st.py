@@ -1,6 +1,6 @@
 import streamlit as st
 from pendle_core_logic import calculate_var_stETH_APY, compute_seven_day_avg
-from helpers import get_response_from_gpt
+#from helpers import get_response_from_gpt
 import plotly.graph_objects as go
 import pandas as pd
 import numpy as np
@@ -89,7 +89,7 @@ df_avg = df_avg.iloc[::-1]
 data_string = f"Outlook: {outlook}. Time Range: {days} days. {methodology} Data: {df_avg.to_string(index=False)}"
 
 user_question = f"Given the {outlook} outlook over a span of {days} days, provide insights on the progression of the APY values."
-pendle_answer = get_response_from_gpt(data_string, user_question)
+#pendle_answer = get_response_from_gpt(data_string, user_question)
 st.write(pendle_answer)
 
 
@@ -100,7 +100,7 @@ st.write(pendle_answer)
 
 # Call the function to generate and store the Pendle model description if not already present in session state
 pendle_model = "Pendle Finance: stETH Underlying APY Simulation"
-pendle_description = pendle_answer
+#pendle_description = pendle_answer
 
 def generate_pendle_description(pendle_model, pendle_description):
     session_state_key = f"description_{pendle_model.replace(' ', '_')}"
@@ -116,8 +116,10 @@ def get_stored_pendle_description(pendle_model):
     session_state_key = f"description_{pendle_model.replace(' ', '_')}"
     return st.session_state.get(session_state_key, "No description available.")
 
+'''
 if f'description_{pendle_model.replace(" ", "_")}' not in st.session_state:
     generate_pendle_description(pendle_model, pendle_description)
+'''
 
 st.write(st.session_state[f"description_{pendle_model.replace(' ', '_')}"])
 
