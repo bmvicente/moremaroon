@@ -1,12 +1,5 @@
 import random
-import os
-import openai
 import streamlit as st
-
-# Setup API key for OpenAI
-openai_api_key = os.environ.get('OPENAI_API_KEY')
-if openai_api_key:
-    openai.api_key = openai_api_key
 
 def get_random_value(interval):
     """Generates a random value from an interval."""
@@ -62,19 +55,6 @@ def calculate_weighted_average_APY(outlook, time_range, initial_APY):
     return APYs
 
 
-def get_response_from_gpt(data_string, question):
-    messages = [
-        {"role": "system", "content": "You are an analyst. Provide insights based on the given data and the provided methodology. Do not start your response with 'Based on the provided data and methodology' or similar phrasings. Ensure all sentences are complete and end with periods."},
-        {"role": "user", "content": f"{data_string}. {question} Please be concise and limit your answer to about four sentences."}
-    ]
-    
-    response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
-        messages=messages,
-        temperature=0.01,
-        max_tokens=150
-    )
-    return response.choices[0].message['content'].strip()
     
 def compute_seven_day_avg(apy_values):
     averages = []
@@ -86,42 +66,3 @@ def compute_seven_day_avg(apy_values):
     return averages
 
 
-####### SESSION STATE #######
-
-def call_gpt3_to_generate_asymmetry_description(asymmetry_model):
-    # Ensure you have the API key set before calling this function
-    if not openai_api_key:
-        raise ValueError("OpenAI API key not found!")
-
-    # Actual call to OpenAI's API to generate a description
-    try:
-        response = openai.Completion.create(
-            model="text-davinci-003",  # Or whichever model you're using
-            prompt=f"Write a concise model description for a financial model named {asymmetry_model}.",
-            temperature=0.7,
-            max_tokens=100
-        )
-        # Extracting the text from the response
-        description = response.choices[0].text.strip()
-        return description
-    except Exception as e:
-        raise Exception(f"An error occurred while generating the description: {str(e)}")
-    
-def generate_asymmetry_description(asymmetry_model):
-    # Call GPT-3 to generate a description
-    asymmetry_description = call_gpt3_to_generate_asymmetry_description(asymmetry_model)
-    
-    # Store the description in the session state
-    session_state_key = f"description_{asymmetry_model.replace(' ', '_')}"
-    st.session_state[session_state_key] = asymmetry_description
-    
-    return asymmetry_description
-
-
-def initialize_session_states():
-    if 'initialized' not in st.session_state:
-        st.session_state['initialized'] = True
-
-def get_stored_asymmetry_description(asymmetry_model):
-    session_state_key = f"description_{asymmetry_model.replace(' ', '_')}"
-    return st.session_state.get(session_state_key, "No description available.")
