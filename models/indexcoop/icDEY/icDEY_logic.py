@@ -1,14 +1,6 @@
 import random
-import os
-import openai
 import pandas as pd
 
-# Get the API key from the environment variable
-openai_api_key = os.environ.get('OPENAI_API_KEY')
-if openai_api_key:
-    openai.api_key = openai_api_key
-else:
-    raise Exception("Error: API key not found!")
 
 def get_random_value(interval, idx):
     """Generates a random value from an interval based on the given outlook index."""
@@ -31,7 +23,6 @@ def simulate_icDEY_APY(outlook, time_range):
     Daily_Rate = [(0.0025, 0.0125), (0.0126, 0.020), (0.021, 0.040)]
 
     # Only first APY is random
-    # Rethink this equation here
     first_APY = ((get_random_value(Leveraged_cbETH, outlook_idx) * (1 + Liquidity_Providing)) * (1 + get_random_value(wstETH, outlook_idx)))
     APYs = [first_APY]
 
@@ -50,17 +41,3 @@ def simulate_cbETH_APY(time_range):
         APYs_cbETH.append(cbETH_APY)
     return APYs_cbETH
 
-def get_response_from_gpt(data_string, question):
-    """Fetch response from GPT based on data and question."""
-    messages = [
-        {"role": "system", "content": "You are an analyst. Provide insights based on the given data and the provided methodology. Do not start your response with 'Based on the provided data and methodology' or similar phrasings. Ensure all sentences are complete and end with periods."},
-        {"role": "user", "content": f"{data_string}. {question} Please be concise and limit your answer to about four sentences."}
-    ]
-   
-    response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
-        messages=messages,
-        temperature=0.01,
-        max_tokens=150
-    )
-    return response.choices[0].message['content'].strip()
