@@ -28,9 +28,9 @@ methodology = """
 Parameter Dynamics:
 
 - **ETH Price**: Depending on the chosen outlook, it fluctuates within the ranges: 
-        *Next-Day ETH Price range* = [(2300.00, 2700.00), (2700.00, 2900.00), (2900.00, 3300.00)]
-        *Next-Day Total stETH range* = [(1.50, 3.50), (3.50, 5.00), (5.00, 7.00)]
-        *Next-Day Number of Validators range* = [(780000, 820000), (820000, 850000), (850000, 890000)] 
+        - *Next-Day ETH Price range* = [(2300.00, 2700.00), (2700.00, 2900.00), (2900.00, 3300.00)]
+        - *Next-Day Total stETH range* = [(1.50, 3.50), (3.50, 5.00), (5.00, 7.00)]
+        - *Next-Day Number of Validators range* = [(780000, 820000), (820000, 850000), (850000, 890000)] 
 - **Total stETH**: This represents the total amount of stETH and can range between different values based on the chosen outlook.
 - **Validators in Lido**: The number of validators can be within different ranges, again based on the selected outlook.
 - **APY Calculation**: Starting with the initially inputted APY, for each day, the APY changes based on a formula that factors in the variance in ETH Price, total stETH, and the number of validators.
